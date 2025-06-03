@@ -27,6 +27,8 @@ t_all	*init_all(int argc, char **argv)
 	if (!all)
 		return (NULL);
 	all->height_file = 0;
+	all->pos_line_read_file = 0;
+
 	//init_map(all, argv[1]);
 	//ft_printf("ok\n");
 	return (all);

@@ -6,23 +6,24 @@
 
 #include <unistd.h>
 
-typedef struct s_all
-{
-	int			height_file;
-	t_map		*map;
-	t_text		*text;
-}			t_all;
 
-
-/* typedef struct s_map
+typedef struct s_map
 {
-	int		i; //bidon juste pour creer la structure
-}			t_map; */
+	char	**line; //tableau de lignes
+}			t_map;
 
 /* typedef struct s_text
 {
 	int		i; //bidon juste pour creer la structure
 }			t_text; */
+
+typedef struct s_all
+{
+	int			height_file;
+	int			pos_line_read_file;
+	t_map		*map;
+	//t_text		*text;
+}			t_all;
 
 /* ====	init.c	=============================================================*/
 
@@ -31,9 +32,13 @@ t_all	*init_all(int argc, char **argv);
 
 /* ====	parsing.c	=========================================================*/
 
-int	parse_map(all, argv[1]);
+void	parse_map(t_all *all, char *file);
 
-/* ====	nom fichier	=========================================================*/
+/* ====	handle_map.c	=========================================================*/
+
+void	handle_map(t_all *all, char *line, int fd);
+
+/* ====	x	=========================================================*/
 
 
 
