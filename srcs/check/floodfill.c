@@ -40,7 +40,10 @@ char	**duplicate_map(t_map *map, t_all *all)
 void	flood_fill(char **map, int x, int y, t_all *all)
 {
 	if (x < 0 || y < 0 || !map[y] || map[y][x] == '\0')
+	{
+		free_map_copy(map, all->map->h_map);
 		error_msg_and_close("Error : Map isn't valid!\n", all);
+	}	
 	if (map[y][x] == '1' || map[y][x] == 'F')
 		return ;
 	if (map[y][x] != '0' && map[y][x] != 'N' && map[y][x] != 'S' &&
